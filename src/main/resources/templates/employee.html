@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>SPS-Employees-work-flow</title>
+</head>
+<body>
+    <h1>Employees</h1>
+    <div th:each = "employee: ${employees}">
+        <span th:text = "${employee.employee_id}"></span><br/>
+        <span th:text = "${employee.name}"></span><br/>
+        <span th:text = "${employee.lastname}"></span><br/>
+        <span th:text = "${employee.birthDay}"></span><br/>
+        <span th:text = "${employee.startingDate}"></span><br/>
+        <span th:text = "${employee.startingPosition}"></span><br/>
+        <span th:text = "${employee.currentPosition}"></span>
+        <hr/>
+    </div>
+</body>
+</html>
