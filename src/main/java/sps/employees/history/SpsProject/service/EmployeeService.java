@@ -23,4 +23,8 @@ public class EmployeeService {
         return employeeOpt.orElse(new Employee());
     }
 
+    public void saveEmployee(Employee employee) {
+        employeeRepo.save(employee);
+    }
+
 }

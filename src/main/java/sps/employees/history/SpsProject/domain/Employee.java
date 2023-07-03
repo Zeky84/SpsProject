@@ -12,8 +12,7 @@ public class Employee {
     private Long employee_id;
     private String name;
     private String lastname;
-    private LocalDateTime birthDay;
-    private LocalDateTime startingDate;
+    private String birthDay;
     private String startingPosition;
     private String currentPosition;
     private List<CompanyItem> items = new ArrayList<>(); //OneToMany
@@ -49,21 +48,14 @@ public class Employee {
         this.lastname = lastname;
     }
 
-    public LocalDateTime getBirthDay() {
+    public String getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(LocalDateTime birthDay) {
+    public void setBirthDay(String birthDay) {
         this.birthDay = birthDay;
     }
 
-    public LocalDateTime getStartingDate() {
-        return startingDate;
-    }
-
-    public void setStartingDate(LocalDateTime startingDate) {
-        this.startingDate = startingDate;
-    }
 
     @Column(length = 20)
     public String getStartingPosition() {
@@ -123,5 +115,15 @@ public class Employee {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employee_id=" + employee_id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                '}';
     }
 }

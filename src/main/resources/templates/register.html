@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration</title>
+</head>
+<body>
+    <h1>Employee registration</h1>
+    <form action="/register" method="post">
+      <div>
+        Name: <input type="text" th:field="${employee.name}">
+      </div>
+        <div>
+            Lastname: <input type="text" th:field="${employee.lastname}">
+        </div>
+        <div>
+            Birthday: <input type="text" th:field="${employee.birthDay}">
+        </div>
+        <div>
+            Starting position: <input type="text" th:field="${employee.startingPosition}">
+        </div>
+        <div>
+            Current position: <input type="text" th:field="${employee.currentPosition}">
+        </div>
+        <div>
+            <button type="submit" style="color:blue" >Employee Registration</button>
+        </div>
+
+    </form>
+</body>
+</html>

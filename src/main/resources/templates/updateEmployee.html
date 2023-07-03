@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee fields</title>
+</head>
+<body>
+<h1>Employee</h1>
+
+<form action="" method="post">
+  <span th:text="${employee.employee_id}"></span>
+  <div>
+    Name: <input type="text" th:field="${employee.name}">
+  </div>
+  <div>
+    Lastname: <input type="text" th:field="${employee.lastname}">
+  </div>
+  <div>
+    Birthday: <input type="text" th:field="${employee.birthDay}">
+  </div>
+  <div>
+    Starting position: <input type="text" th:field="${employee.startingPosition}">
+  </div>
+  <div>
+    Current position: <input type="text" th:field="${employee.currentPosition}">
+  </div>
+  <div>
+    <button type="submit" style="color: blue" >Update Employee</button>
+  </div>
+</form>
+</body>
+</html>
