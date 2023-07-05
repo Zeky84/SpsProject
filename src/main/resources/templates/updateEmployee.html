@@ -6,27 +6,43 @@
 </head>
 <body>
 <h1>Employee</h1>
+<div>
+  <form action="" method="post">
+      <div>
+        Name: <input type="text" th:field="${employee.name}">
+      </div>
+      <div>
+        Lastname: <input type="text" th:field="${employee.lastname}">
+      </div>
+      <div>
+        Birthday: <input type="text" th:field="${employee.birthDay}">
+      </div>
+      <div>
+        Starting position: <input type="text" th:field="${employee.startingPosition}">
+      </div>
+      <div>
+        Current position: <input type="text" th:field="${employee.currentPosition}">
+      </div>
+      <div>
+        <button type="submit" style="color: blue" >Update Employee</button>
+      </div>
+  </form>
+</div>
+<div>
+  <form th:action="@{/updateEmployee/{employee_id}/delete(employee_id=${employee.employee_id})}" method="post">
+    <input type="submit" value="Delete employee account">
+  </form>
+</div>
+  <div>
+    <span>
+    <!--<button type="button" class="btn btn-primary" th:href="@{/register}">Return to Home</button>-->
+    <a href="/register" style="margin-right:2em">Go to Register</a>
+    </span>
+    <span>
+     <!-- <button type="button" style="color: green" class="btn btn-primary" th:onclick="'javascript:history.back()'">Back to Main List</button> -->
+      <a href="/employees">Go to Employees List</a>
+    </span>
+  </div>
 
-<form action="" method="post">
-  <span th:text="${employee.employee_id}"></span>
-  <div>
-    Name: <input type="text" th:field="${employee.name}">
-  </div>
-  <div>
-    Lastname: <input type="text" th:field="${employee.lastname}">
-  </div>
-  <div>
-    Birthday: <input type="text" th:field="${employee.birthDay}">
-  </div>
-  <div>
-    Starting position: <input type="text" th:field="${employee.startingPosition}">
-  </div>
-  <div>
-    Current position: <input type="text" th:field="${employee.currentPosition}">
-  </div>
-  <div>
-    <button type="submit" style="color: blue" >Update Employee</button>
-  </div>
-</form>
 </body>
 </html>

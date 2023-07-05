@@ -38,17 +38,20 @@ public class EmployeeController {
         return "employees";
     }
 
-    @GetMapping("/updateEmployee/{employeeId}") // Get for employee. One employee
-    public String getEmployeeById(ModelMap model, @PathVariable Long employeeId){
-        Employee employee = employeeService.findById(employeeId);
+    @GetMapping("/updateEmployee/{employee_id}") // Get for employee. One employee
+    public String getEmployeeById(ModelMap model, @PathVariable Long employee_id){
+        Employee employee = employeeService.findById(employee_id);
         model.put("employee",employee);
-        System.out.println(employee);
         return "updateEmployee";
     }
-    @PostMapping("/updateEmployee/{employeeId}")
-    public String postEmployeeById( @PathVariable Long employeeId, Employee employee){
+    @PostMapping("/updateEmployee/{employee_id}")
+    public String postEmployeeById( @PathVariable Long employee_id, Employee employee){ //make sure the @PathVariable name is the same in the domain object
         employeeService.saveEmployee(employee);
-        System.out.println(employee.getEmployee_id());
         return "redirect:/updateEmployee/"+employee.getEmployee_id();
+    }
+    @PostMapping("updateEmployee/{employee_id}/delete")
+    public String deleteEmployee(@PathVariable Long employee_id){
+        employeeService.delete(employee_id);
+        return "redirect:/register";
     }
 }
