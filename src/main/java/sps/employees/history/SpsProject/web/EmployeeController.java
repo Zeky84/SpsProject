@@ -37,6 +37,11 @@ public class EmployeeController {
         model.put("employees",allEmployees);
         return "employees";
     }
+    @PostMapping("/employees")
+    public String removeAllEmployees(){
+        employeeService.removeAll();
+        return "redirect:/employees";
+    }
 
     @GetMapping("/updateEmployee/{employee_id}") // Get for employee. One employee
     public String getEmployeeById(ModelMap model, @PathVariable Long employee_id){

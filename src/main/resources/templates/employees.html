@@ -16,5 +16,8 @@
     <hr/>
 </div>
     <a href="/register" style="margin-right:2em">Employee Registration</a>
+    <form th:if="${#lists.size(employees)>=1}" action="/employees" method="post">
+        <button type="submit" style="color: blue" >Clear List</button>
+    </form>
 </body>
 </html>

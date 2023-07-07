@@ -30,4 +30,8 @@ public class EmployeeService {
     public void delete(Long employee_id) {
         employeeRepo.deleteById(employee_id);
     }
+
+    public void removeAll() {
+        employeeRepo.deleteAll();
+    }
 }
