@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees by job position</title>
+    <link rel="stylesheet" href="./general.css" type="text/css">
+</head>
+<body>
+    <h1>Searching criteria: [[${employees[0].currentPosition}]]  </h1> <!-- taking the first employee in the list and getting the currentPosition -->
+
+    <div th:each = "employee: ${employees}">
+        <span><a style="color: blue" th:href="@{/updateEmployee/{empId}(empId=${employee.employee_id})}">[[${employee.employee_id}]]</a></span>
+        <span th:text = "${employee.name}"></span>
+        <span th:text = " ${employee.lastname}"></span>
+        <span th:text = "${employee.currentPosition}"></span>
+        <hr/>
+    </div>
+    <div class="container">
+        <div class="column">
+            <!-- <button type="button" style="color: green" class="btn btn-primary" th:onclick="'javascript:history.back()'">Back to Main List</button> -->
+            <a href="/employees">Go to Employees General List</a>
+        </div>
+<!--        <div class="column">-->
+<!--            <form  action="/employees/employeePosition" method="post">-->
+<!--                <button type="submit" style="color: blue" >Clear List</button>-->
+<!--            </form>-->
+<!--        </div>-->
+    </div>
+</body>
+</html>

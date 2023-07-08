@@ -1,11 +1,13 @@
 package sps.employees.history.SpsProject.web;
 
+import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import sps.employees.history.SpsProject.domain.Employee;
 import sps.employees.history.SpsProject.service.EmployeeService;
 
@@ -33,6 +35,8 @@ public class EmployeeController {
     @GetMapping("/employees") // Get for employee. Employee list
     public String getAllEmployees(ModelMap model){
         List<Employee> allEmployees = employeeService.findAll();
+//        List<Employee> allEmployeesByName = employeeService.findByName("Ezequiel");
+//        List<Employee> allEmployeesByCurrentPosition = employeeService.findByCurrentPosition("Helper");
         System.out.println(allEmployees);
         model.put("employees",allEmployees);
         return "employees";
@@ -41,6 +45,13 @@ public class EmployeeController {
     public String removeAllEmployees(){
         employeeService.removeAll();
         return "redirect:/employees";
+    }
+    //The below method is to implements a QUERY METHOD WITH SPRING DATA JPA
+    @PostMapping("/employees/employeePosition")
+    public String getEmployeeByPosition(@RequestParam("employeePosition") String inputEmployeePosition, ModelMap model){
+        List<Employee> getAllEmployeesBySpecificPosition = employeeService.findByCurrentPosition(inputEmployeePosition);
+        model.put("employees",getAllEmployeesBySpecificPosition);
+        return "/employeePosition";
     }
 
     @GetMapping("/updateEmployee/{employee_id}") // Get for employee. One employee

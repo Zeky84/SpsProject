@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Employee Registration</title>
+    <link rel="stylesheet" href="./general.css" type="text/css">
 </head>
 <body>
     <h1>Employee registration</h1>
@@ -23,10 +24,10 @@
             Current position: <input type="text" th:field="${employee.currentPosition}">
         </div>
         <div>
-            <button type="submit" style="color:blue" >Employee Registration</button>
+            <button type="submit" style="color:blue" >Save Employee</button>
             <span>
                 <!-- <button type="button" style="color: green" class="btn btn-primary" th:onclick="'javascript:history.back()'">Back to Main List</button> -->
-                <a href="/employees">Go to Employees List</a>
+                <a href="/employees">Go to Employees General List</a>
             </span>
         </div>
 

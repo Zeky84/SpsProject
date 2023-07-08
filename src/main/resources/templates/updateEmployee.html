@@ -2,12 +2,12 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Employee fields</title>
+  <title>Update Employee</title>
 </head>
 <body>
-<h1>Employee</h1>
-<div>
-  <form action="" method="post">
+<h1>Employee ID:  [[${employee.employee_id}]]</h1>
+<div class="container">
+    <form action="" method="post">
       <div>
         Name: <input type="text" th:field="${employee.name}">
       </div>
@@ -24,14 +24,18 @@
         Current position: <input type="text" th:field="${employee.currentPosition}">
       </div>
       <div>
-        <button type="submit" style="color: blue" >Update Employee</button>
+          <button type="submit" style="color: blue" >Update Employee Info</button>
       </div>
-  </form>
+    </form>
+
+    <form th:action="@{/updateEmployee/{employee_id}/delete(employee_id=${employee.employee_id})}" method="post">
+        <button type="submit" style="color: blue" >Delete Employee Account</button>
+    </form>
 </div>
+
+
 <div>
-  <form th:action="@{/updateEmployee/{employee_id}/delete(employee_id=${employee.employee_id})}" method="post">
-    <input type="submit" value="Delete employee account">
-  </form>
+
 </div>
   <div>
     <span>
@@ -40,7 +44,7 @@
     </span>
     <span>
      <!-- <button type="button" style="color: green" class="btn btn-primary" th:onclick="'javascript:history.back()'">Back to Main List</button> -->
-      <a href="/employees">Go to Employees List</a>
+      <a href="/employees">Go to Employees General List</a>
     </span>
   </div>
 

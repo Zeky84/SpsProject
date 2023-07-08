@@ -20,6 +20,7 @@ public class EmployeeService {
 
     public Employee findById(Long employee_id){
         Optional<Employee> employeeOpt = employeeRepo.findById(employee_id);
+
         return employeeOpt.orElse(new Employee());
     }
 
@@ -34,4 +35,13 @@ public class EmployeeService {
     public void removeAll() {
         employeeRepo.deleteAll();
     }
+
+    //The below method is to implements a QUERY METHOD WITH SPRING DATA JPA
+    public List<Employee> findByCurrentPosition(String currentPosition){
+        return employeeRepo.findByCurrentPosition(currentPosition);
+    }
+    public List<Employee> findByName(String name){
+        return employeeRepo.findByName(name);
+    }
 }
+
